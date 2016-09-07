@@ -600,7 +600,8 @@ Please fix or remove all unknown nodes before saving.
         record = self.record()
         record.setDescription(description)
         iconPath = self.iconPath()
-        contents = [os.path.dirname(self.sequencePath())]
+        sequence_path = self.sequencePath()
+        contents = [os.path.dirname(self.sequencePath())] if sequence_path else None
         record.save(objects=objects, path=path, contents=contents,
                     iconPath=iconPath, startFrame=startFrame,
                     endFrame=endFrame, bakeConnected=bakeConnected)
