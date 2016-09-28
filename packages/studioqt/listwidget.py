@@ -1076,3 +1076,8 @@ class ListWidget(QtGui.QListWidget):
         if self._drag:
             del self._drag
             self._drag = None
+
+        # Return the focus to Maya under any keypress/drag.
+        # This allow the animators to create keyframes immediately afterward.
+        from maya import cmds
+        cmds.setFocus("MayaWindow")
